@@ -12,7 +12,7 @@
 
 📖 Overview
 
-Welcome to the open-source repository for our paper "Cross-regional validation of the PhenoFlex framework from flowering date prediction in apple: a study across Germany and Spain". 🌍  The performance of PhenoFlex when used to estimate a common set of parameters across multiple apple cultivars from two climatic settings (Germany 🇩🇪 and Spain 🇪🇸). By employing both location- and species-specific calibrations and two optimization procedures. Such results may provide a general outlook at the species level.
+Welcome to the open-source repository for our paper "Cross-regional validation of the PhenoFlex framework from flowering date prediction in apple: a study across Germany and Spain". 🌍  We assessed the performance of the PhenoFlex framework when used to estimate a common set of parameters across multiple apple cultivars from two climatic settings (Germany 🇩🇪 and Spain 🇪🇸). By employing both ocation- and species-specific calibrations, alongside two optimization procedures, our findings offer insights into species-level phenology modeling.
 
 🗂 Dataset
 
@@ -21,6 +21,6 @@ The dataset including phenological and meteorological data for:
     5 German cultivars 🇩🇪
     11 Spanish cultivars 🇪🇸
 
-will made available upon request.
+will be made available upon request.
 
 For any questions, feel free to contact us at: [email](mailto:hmojahid@uni-bonn.de?subject=[GitHub]%20phenoflex_cross_validation)
