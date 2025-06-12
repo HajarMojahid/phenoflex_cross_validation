@@ -427,6 +427,6 @@ final_plot <- ggdraw(combined_plot) +
 
 
 ## save 
-ggsave("plots/parameters/specific_parameters_quartiles.png", 
-       height = 24, width = 19, dpi =300,
+ggsave("plots/parameters/specific_parameters_dpi.png", 
+       height = 24, width = 19, dpi = 500,
        units = 'cm', device = 'jpeg')

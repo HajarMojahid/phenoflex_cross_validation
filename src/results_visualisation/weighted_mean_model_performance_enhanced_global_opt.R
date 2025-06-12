@@ -119,19 +119,22 @@ p_weighted_mean <- weighted_mean_wider %>%
   # Add error bars with transparency
   geom_errorbar(aes(ymin = weighted_pred - sd, 
                     ymax = weighted_pred + sd, 
-                    color = Fit), 
-                alpha = 0.7, 
+                    color = Fit, alpha = Fit), 
+                #alpha = 0.7, 
                 width = 0.5,
                 linewidth = 1 ) +
   # Add points
-  geom_point(aes(color = Fit), 
-             size = 3, 
-             alpha = 0.7) +
+  geom_point(aes(color = Fit, alpha = Fit), 
+             size = 3) +
+             #alpha = 0.3) +
   # Set colors
   scale_color_manual(name = "Calibration approaches:",
                      values = c("Apple fit" = "#E64B35", 
                                 "Location specific" = "#4DBBD5"),
                      labels = c("Species-specific","Location-specific")) +
+  
+  # Set alpha: lower for blue, higher for red
+  scale_alpha_manual(values = c("Apple fit" = 0.8, "Location specific" = 0.5)) +
   
   ylim(c(60,180))+ xlim(c(60,180))+
   
@@ -179,12 +182,14 @@ p_weighted_mean <- weighted_mean_wider %>%
     # Add proper spacing
     panel.spacing = unit(0.5, "lines")
   ) +
-  facet_wrap(~ Cultivar, ncol = 4, scales = "fixed")
+  facet_wrap(~ Cultivar, ncol = 4, scales = "fixed") +
+  guides(alpha = "none")
+
 
 # save
-ggsave('plots/model_performance/weighted_mean_prediction_improved_legend_margin_final.jpeg',
+ggsave('plots/model_performance/weighted_mean_prediction_dpi.jpeg',
        p_weighted_mean, height = 24, width = 19,
-       dpi = 300, units = 'cm', device = 'jpeg')
+       dpi = 500, units = 'cm', device = 'jpeg')
 
 ##### calculate sd between splits #####
 
