@@ -134,7 +134,7 @@ p_weighted_mean <- weighted_mean_wider %>%
                      labels = c("Species-specific","Location-specific")) +
   
   # Set alpha: lower for blue, higher for red
-  scale_alpha_manual(values = c("Apple fit" = 0.8, "Location specific" = 0.5)) +
+  scale_alpha_manual(values = c("Apple fit" = 0.6, "Location specific" = 0.4)) +
   
   ylim(c(60,180))+ xlim(c(60,180))+
   
