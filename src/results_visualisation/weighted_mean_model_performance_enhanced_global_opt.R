@@ -140,9 +140,9 @@ p_weighted_mean <- weighted_mean_wider %>%
   
   geom_text(data = performance_stats, aes(x = 75, y = 150, label = paste0('RMSE: ', format(round(Apple_fit_RMSE, digits = 1), nsmall = 1),
                                                                           ' (', format(round(Location_specific_RMSE,1), nsmall = 1), ')')), hjust = 0,size = 3)+
-  geom_text(data = performance_stats, aes(x = 75, y = 145, label = paste0('RPIQ: ', format(round(Apple_fit_RPIQ, digits = 1), nsmall = 1),
+  geom_text(data = performance_stats, aes(x = 75, y = 144, label = paste0('RPIQ: ', format(round(Apple_fit_RPIQ, digits = 1), nsmall = 1),
                                                                           ' (', format(round(Location_specific_RPIQ,1), nsmall = 1), ')')), hjust = 0,size = 3)+
-  geom_text(data = performance_stats, aes(x = 75, y = 140, label = paste0('bias: ', format(round(Apple_fit_Bias, digits = 1), nsmall = 1),
+  geom_text(data = performance_stats, aes(x = 75, y = 138, label = paste0('bias: ', format(round(Apple_fit_Bias, digits = 1), nsmall = 1),
                                                                           ' (', format(round(Location_specific_Bias,1), nsmall = 1), ')')), hjust = 0,size = 3)+
   
   #format axes
@@ -187,8 +187,8 @@ p_weighted_mean <- weighted_mean_wider %>%
 
 
 # save
-ggsave('plots/model_performance/weighted_mean_prediction_dpi.jpeg',
-       p_weighted_mean, height = 24, width = 19,
+ggsave('plots/model_performance/weighted_mean_prediction.jpeg',
+       p_weighted_mean, height = 22, width = 19,
        dpi = 500, units = 'cm', device = 'jpeg')
 
 ##### calculate sd between splits #####

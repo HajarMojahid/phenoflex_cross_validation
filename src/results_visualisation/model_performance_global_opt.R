@@ -178,8 +178,8 @@ p_performance_old_fitter <- prediction_df %>%
   ) +
   facet_wrap(~ Cultivar, ncol = 4, scales = "fixed")
 
-ggsave('plots/model_performance/model_performance_old_fitter_last_run_rpiq_fixed_final.jpeg',
-       p_performance_old_fitter, height = 24, width = 19,
-       dpi = 300, units = 'cm', device = 'jpeg')
+ggsave('plots/model_performance/model_performance_old_fitter.jpeg',
+       p_performance_old_fitter, height = 22, width = 19,
+       dpi = 500, units = 'cm', device = 'jpeg')
 
 

@@ -189,14 +189,14 @@ heat_response_plot <- ggplot(filter(temperature_responses, variable == "heat_res
 
 (chill_response_plot + heat_response_plot) +
   plot_layout(guides = "collect", axis_titles = "collect") & 
-  theme(legend.title = element_text(size = 6),
+  theme(legend.title = element_text(size = 10),
         legend.position = "bottom",
         legend.key = element_rect(size = 6),
-        legend.text = element_text(size = 6),
+        legend.text = element_text(size = 10),
         legend.margin = margin(t = -10, unit = "pt"),
         plot.margin = margin (1,1,1,1))
 
 ## save 
-ggsave("plots/temperature_response/temp_responses_final.margin_ready.png",
-       width = 12, height = 10, units = "cm", dpi = 600)
+ggsave("plots/temperature_response/temp_responses.png",
+       width = 18, height = 12, units = "cm", dpi = 500)
 
