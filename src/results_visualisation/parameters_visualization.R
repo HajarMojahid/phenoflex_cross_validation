@@ -223,10 +223,10 @@ p_common_param_summary_fitter <- ggplot(common_param_summary_fitter,
   labs(x = "Parameter Value")
 
 # Save the plot
-ggsave("plots/parameters/common_parameters_fitter_quartiles.png",
+ggsave("plots/parameters/common_parameters_fitter.png",
        p_common_param_summary_fitter, 
        height = 20, width = 19, dpi = 500,
-       units = 'cm', device = 'jpeg')
+       units = 'cm', device = 'png')
 
 
 
@@ -429,4 +429,4 @@ final_plot <- ggdraw(combined_plot) +
 ## save 
 ggsave("plots/parameters/specific_parameters_dpi.png", 
        height = 24, width = 19, dpi = 500,
-       units = 'cm', device = 'jpeg')
+       units = 'cm', device = 'png')

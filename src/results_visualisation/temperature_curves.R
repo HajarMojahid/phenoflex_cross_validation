@@ -146,7 +146,7 @@ chill_response_plot <- ggplot(filter(temperature_responses, variable == "chill_r
                                 "Spanish location-specific",
                                 "Species-specific")) +
   
-  theme_bw() +
+  theme_bw(base_size = 14) +
   theme(axis.title = element_text(),
         axis.text = element_text(size = 8),
         strip.text.y = element_blank(),
@@ -176,7 +176,7 @@ heat_response_plot <- ggplot(filter(temperature_responses, variable == "heat_res
                                 "Spanish location-specific",
                                 "Species-specific")) +
   
-  theme_bw() +
+  theme_bw(base_size = 14) +
   theme(axis.title = element_text(),
         axis.text = element_text(size = 8),
         strip.background = element_blank(),
@@ -198,5 +198,6 @@ heat_response_plot <- ggplot(filter(temperature_responses, variable == "heat_res
 
 ## save 
 ggsave("plots/temperature_response/temp_responses.png",
-       width = 18, height = 12, units = "cm", dpi = 500)
+       width = 18, height = 12, units = "cm", dpi = 500,
+       device = "png" )
 

@@ -187,9 +187,9 @@ p_weighted_mean <- weighted_mean_wider %>%
 
 
 # save
-ggsave('plots/model_performance/weighted_mean_prediction.jpeg',
+ggsave('plots/model_performance/weighted_mean_prediction.png',
        p_weighted_mean, height = 22, width = 19,
-       dpi = 500, units = 'cm', device = 'jpeg')
+       dpi = 500, units = 'cm', device = 'png')
 
 ##### calculate sd between splits #####
 
