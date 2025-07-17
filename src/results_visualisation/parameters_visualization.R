@@ -149,10 +149,10 @@ param_order <- c("A0", "A1", "E0", "E1", "slope", "Tb", "Tc", "Tf", "Tu")
 # Define the labeller function
 param_labeller <- function(variable, value) {
   common_labels <- list(
-    'A0' = expression(bold("A0")),
-    'A1' = expression(bold("A1")),
-    'E0' = expression(bold("E0")),
-    'E1' = expression(bold("E1")),
+    'A0' = expression(bold(A)[bold("0")]),
+    'A1' = expression(bold(A)[bold("1")]),
+    'E0' = expression(bold(E)[bold("0")]),
+    'E1' = expression(bold(E)[bold("1")]),
     'slope' = expression(bold("slope")),
     'Tb' = expression(bold(T)[bold(b)]),
     'Tc' = expression(bold(T)[bold(c)]),

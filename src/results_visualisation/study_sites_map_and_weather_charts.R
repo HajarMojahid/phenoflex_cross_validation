@@ -44,8 +44,85 @@ ggsave(
 )
 
 # weather charts for each location 
+# finding stations with 30 years of data. 
 
-# CKA 
+# CKA (Germany)
+stationlist_cka <- handle_dwd(
+  action = "list_stations",
+  location = c(locations$lon[1], locations$lat[1]),
+  time_interval = c(19910101, 20201231) 
+)
+
+# SERIDA (Spain)
+stationlist_serida <- handle_gsod(
+  action = "list_stations",
+  location = c(locations$lon[2], locations$lat[2]),
+  time_interval = c(1991, 2020)
+)
+
+# Download data for the closest station for CKA
+weather_cka <- handle_dwd(
+  action = "download_weather",
+  location = stationlist_cka$Station_ID[1], 
+  time_interval = c(19910101, 20201231)
+)
+
+# Download data for the closest station for SERIDA
+weather_serida <- handle_gsod(
+  action = "download_weather",
+  location = stationlist_serida$chillR_code[1],
+  time_interval = c(1991, 2020)
+)
+
+
+# Clean and prepare the data
+weather_cka_clean <- handle_dwd(action = weather_cka)
+weather_serida_clean <- handle_gsod(action = weather_serida)
+
+# delete intermediate climate files for cka 
+handle_gsod(action = "delete", clean_up = "all")
+
+
+# make into a dataframe 
+df_cka <- weather_cka_clean[[1]]
+df_serida <- weather_serida_clean[[1]]
+
+# long term monthly averages (climate normals)
+
+# For CKA
+monthly_cka <- df_cka %>%
+  group_by(Year, Month) %>%
+  summarize(
+    Tmean = mean(Tmean, na.rm = TRUE),
+    Prec = sum(Rainfall, na.rm = TRUE)
+  )
+
+# For SERIDA 
+monthly_serida <- df_serida %>%
+  group_by(Year, Month) %>%
+  summarize(
+    Tmean = mean(Tmean, na.rm = TRUE),
+    Prec = sum(Prec, na.rm = TRUE)
+  )
+
+# Summarize monthly averages
+
+clim_cka <- monthly_cka %>%
+  group_by(Month) %>%
+  summarize(
+    Tmean = mean(Tmean, na.rm = TRUE),
+    Prec = mean(Prec, na.rm = TRUE)
+  )
+
+clim_serida <- monthly_serida %>%
+  group_by(Month) %>%
+  summarize(
+    Tmean = mean(Tmean, na.rm = TRUE),
+    Prec = mean(Prec, na.rm = TRUE)
+  )
+
+
+# Plot CKA 
 clim_cka$Month <- factor(month.abb[clim_cka$Month], levels = month.abb)
 
 p_cka <- ggplot(clim_cka, aes(x = Month)) +
@@ -103,7 +180,7 @@ p_cka <- ggplot(clim_cka, aes(x = Month)) +
   ) +
   guides(color = "none", fill = "none")
 
-# SERIDA 
+# Plot SERIDA 
 clim_serida$Month <- factor(month.abb[clim_serida$Month], levels = month.abb)
 
 p_serida <- ggplot(clim_serida, aes(x = Month)) +
